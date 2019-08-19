@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_232754) do
+ActiveRecord::Schema.define(version: 2019_08_19_161653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_232754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "name"
     t.index ["user_id"], name: "index_clock_events_on_user_id"
   end
 
@@ -32,6 +33,11 @@ ActiveRecord::Schema.define(version: 2019_08_17_232754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.boolean "login_status"
+    t.string "email"
+    t.string "user_nick"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["user_nick"], name: "index_users_on_user_nick", unique: true
   end
 
   add_foreign_key "clock_events", "users"

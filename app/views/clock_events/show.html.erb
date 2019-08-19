@@ -1,0 +1,29 @@
+Showing Clock Events for User <h3 class="text-danger"> <%= @user_nickname  %> </h3> <br/>
+
+<table class="table">
+  <thead class="text-primary">
+  <tr >
+    <th scope="col">#</th>
+    <th scope="col">Clock In</th>
+    <th scope="col">Clock Out</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%@clock_events.each do |event|%>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.clock_in%></td>
+        <td><%= event.clock_out%></td>
+        <td>
+          <%= link_to 'Edit Event', edituserclockevent_path(:id => event.id), method: :get, :class=>"btn btn-primary btn-rounded mb-4" %>
+        </td>
+        <td>
+          <%= link_to 'Delete Event',userclockevent_path(:id => event.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-rounded mb-4"%>
+        </td>
+      </tr>
+  <%end %>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,18 @@
+<h3>Edit</h3>
+<div class="login">
+  <form accept-charset="UTF-8" action="/edituserclockevent" class="new_user" id="new_user" method="post">
+    <div class="form-group">
+      <input class="form-control" id="user_nick" name="id" type="text"  readonly value = "<%=@user_event.id %>">
+    </div>
+    <div class="form-group">
+      <label for="user_nick">Clock In</label>
+      <input class="form-control" id="user_nick" name="clock_in" type="text" value = "<%=@user_event.clock_in %>">
+    </div>
+    <div class="form-group">
+      <label for="user_nick">Clock Out</label>
+      <input class="form-control" id="user_nick" name="clock_out" type="text" value = "<%=@user_event.clock_out %>">
+    </div>
+    <input class="btn btn-info" name="commit" type="submit" value="Update">
+    <br/><a href="/" method="post" class="text-blue font-weight-bold">Home</a>
+  </form>
+</div>

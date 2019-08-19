@@ -1,0 +1,33 @@
+<div id="register-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center"><strong>Register</strong></h4>
+        <% if @error%>
+            <% @error.each do |error| %>
+              <%= content_tag :span, error, class: "text-danger notice", id: "puffly" %>
+            <% end %>
+        <% end %>
+        <% if @message%>
+              <%= content_tag :span, error, class: "text-success notice", id: "puffly" %>
+        <% end %>
+      </div>
+      <div class="modal-body">
+        <form action="/user" class="new_user" id="new_user" method="post" >
+          <div class="form-group">
+            <label for="user_nick">User Nick</label>
+            <input class="form-control" id="user_nick" name="user_nick" type="text" >
+          </div>
+          <input class="btn btn-info" name="commit" type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <br/><a href="/" method="get" class="text-blue font-weight-bold">Log in</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

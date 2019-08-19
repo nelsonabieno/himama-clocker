@@ -1,0 +1,34 @@
+<h3> Welcome </h3>
+<div id="register-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center"></h4>
+        <% if flash[:error]%>
+            <strong> <%= content_tag :span, flash[:error], class: "text-danger notice", id: "puffly" %> </strong>
+        <% end %>
+
+        <% if flash[:clock_in]%>
+            <strong> <%= content_tag :span, flash[:clock_in], class: "text-success text-bold notice", id: "puffly" %> </strong>
+        <% end %>
+
+        <% if flash[:clock_out]%>
+            <strong> <%= content_tag :span,flash[:clock_out], class: "text-info notice", id: "puffly" %> </strong>
+        <% end %>
+      </div>
+      <div class="modal-body text-center">
+
+          <%= link_to 'Clock In', clockin_path(:id => @user.id), method: :get, :class=>"btn btn-success", :id=>"clock-in" %>
+          <%= link_to 'Clock Out', clockout_path(:id => @user.id), method: :get, :class=>"btn btn-info", :id=>"clock-out" %>
+      </div>
+      <div class="modal-footer">
+        <br/><% if @user.is_admin %>
+            <a href="/clockevents" method="get" class="text-blue font-weight-bold">Admin View Logs</a>
+            <%end%>
+        <br/><a href="/logout" method="get" class="text-danger font-weight-bold">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
